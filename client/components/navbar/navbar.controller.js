@@ -4,14 +4,7 @@ angular.module('proj4App')
   .controller('NavbarCtrl', function ($scope, $location, Auth, stockService, ngDialog) {
     var that = this;
     that.tab = 82;
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/',
-    }
-    ,
-    {'title': 'About',
-    'link': '/about'}
-    ];
+    $scope.menu = [{}];
     $scope.checked = false;
     $scope.toggle = function(){
       console.log('hello!! :');
@@ -52,7 +45,11 @@ angular.module('proj4App')
       'link': '/research',
       'img': "../../../../assets/images/research.png",
       'class': "black"
-      }
+      },
+      {'title': 'About',
+      'link': '/about',
+      'img': "../../../../assets/images/info.png",
+      'class': "black"}
     ]
 
     $scope.isCollapsed = true;
