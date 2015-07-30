@@ -17,7 +17,11 @@ angular.module('proj4App')
       });
     }
     //call to get when controller is creatd/alive
-
+     that.toggle = function(){
+      that.checked = !that.checked;
+      //janky, but attempting to get the current info in the slideout panel
+      that.getUserPortfolio();
+  }
     //Gets the stock inventory from the DB
     that.getStockInventory = function() {
       stockService.getInventory().success(function(json) {
