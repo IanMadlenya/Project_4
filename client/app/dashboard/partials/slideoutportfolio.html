@@ -2,7 +2,7 @@
     overflow: scroll;">
                     <a ng-click="ctrl.toggle()" class="button">
                     <div style="padding:20px">
-                        <table class="bordered responsive-table black-text">
+                        <table class="bordered black-text">
                           <thead>
                             <tr>
                                 <th data-field="name">Shares Owned</th>
@@ -16,7 +16,8 @@
                               </tr>
                           </tbody>
                       </table>
-                      Portfolio: {{ctrl.total | currency}}
+                      Total Stocks Value: {{ctrl.total | currency}}<br>
+                      Cash: {{ctrl.myPortfolio.cash | currency}}
                     </div>
                     </a>
                 </div>
