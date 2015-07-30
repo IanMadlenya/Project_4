@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('proj4App')
-  .controller('StockShowCtrl', function ($scope, $stateParams, yahooFinanceService, twitSentService, stockService, portfolioService, toastr, ngDialog) {
+  .controller('StockShowCtrl', function ($scope, $http, $stateParams, yahooFinanceService, twitSentService, stockService, portfolioService, toastr, ngDialog) {
     console.log('StockShowCtrl is alive!!' + $stateParams);
 
 
@@ -12,8 +12,8 @@ angular.module('proj4App')
   var id = $stateParams.stockId;
   that.chartNum = 0;
   that.twitScoreKnown = 0;
-  that.cloudClick =0;
-
+  that.cloudClick = 0;
+  that.visible = false;
   that.clickToOpen = function () {
         ngDialog.open({ template: 'templateId' });
     };
@@ -127,35 +127,7 @@ angular.module('proj4App')
     that.currentData = json;
    })
   }
-//twitter/ wordcloud
-//   that.words = [];
-//   that.wordArray = function  (my_array) {
 
-//      _(my_array).forEach(function(n) {
-//         var x = Math.floor(Math.random() * 10) + 1;
-//         that.words.push({id: x, word: n, size: x});
-
-//       });
-// console.log(that.words + ' is word array');
-//   }
-
-
-//       that.twitSentQuery = function(input) {
-//       // console.log(that.userInput + 'is userInput');
-//       if (that.userInput !== '' || that.userInput !== null) { //Defensive programming - guard against empty answers TODO: research undefined
-//       twitSentService.search(input).success(function(json) {
-//         // console.log('twitSentQuery from DashboardCtrl');
-//         // console.log(json);
-//         that.twitAnalysis = json;
-//         console.log(that.twitAnalysis.negative.length);
-//         that.wordArray(that.twitAnalysis.negative);
-//         // console.log(that.twitAnalysis.positive  + '     is that.twitAnalysis');
-//         // that.twitAnaylsisData = json;
-//         //wordcloud
-//         // wordCloud(that.twitAnalysis.positive);
-//       });
-//       }
-//     }
 //original word cloud work above TODO: assess if anything here is worth saving
     that.open;
     that.close;
@@ -251,10 +223,12 @@ angular.module('proj4App')
     that.twitAnalysisWithReset = [];
     that.wordsArray = [];
     that.words = [{word: 'love', size: 1}, {word: 'hate', size: 5}];
+    //that.myPromise = $http.post('/api/twitSent', {query: userInput});
     that.twitSentQuery = function(userInput, id, name) {
     that.twitAnalysis = [];
       that.tab = 0;
       that.twitAnalysisWithReset = [];
+      that.visible = true;
       // console.log(that.userInput + 'is userInput');
       if (that.userInput !== '' || that.userInput !== null) { //Defensive programming - guard against empty answers TODO: research undefined
       twitSentService.search(userInput).success(function(json) {
@@ -461,7 +435,7 @@ angular.module('proj4App')
 that.konamiKash = function () {
   if (that.myPortfolio.cash < 20 || that.myPortfolio.cash === undefined) {
     that.myPortfolio.cash = 20;
-    toastr.success("KONAMI KASH ENABLED")
+    toastr.success("KONAMI KASH ENABLED");
   }
 }
 var easter_egg = new Konami();

@@ -60,7 +60,7 @@ angular.module('proj4App')
       console.log("it begins")
       that.options = {
             chart: {
-                type: 'historicalBarChart',
+                type: 'cumulativeLineChart',
                 height: 450,
                 margin : {
                     top: 20,

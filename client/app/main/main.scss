@@ -143,10 +143,7 @@ h2 {
     border: 4px solid #546e7a;
     border-left: 4px solid #ff3d00;
 }
-//changed to a percentage and put in app.scss since it's an appwide style
-// header, main, footer {
-//     padding-left: 100px;
-//   }
+
 
 
   @media only screen and (max-width : 992px) {
@@ -211,30 +208,10 @@ h2 {
 .menu-hide-setup.menu-hide-start {
   max-height:0;
 }
-div.col.s2 {
+// div.col.s2 {
 
-}
-// .gridRow {
-//     border: 2px solid blue;
-//     padding: 0px;
-//     margin: 0px;
 // }
-// .gridColOne {
-//     margin: 10px 40px 10px 40px;
-//     border: 1px solid white;
-//     height: 131px;
-//     width: 260px;
-//     background-color: #ff3d00;
-//     color: white;
-// }
-// .gridColOne:hover {
-//     margin: 10px 40px 10px 40px;
-//     border: 1px solid white;
-//     height: 131px;
-//     width: 260px;
-//     background-color: white;
-//     color: #ff3d00;
-// }
+
 
 #financeGraph {
     margin: 10px 40px 10px 40px;
