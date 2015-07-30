@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('proj4App')
-  .controller('StockShowCtrl', function ($scope, $stateParams, yahooFinanceService, twitSentService, stockService, portfolioService, toastr, ngDialog) {
+  .controller('StockShowCtrl', function ($scope, $http, $stateParams, yahooFinanceService, twitSentService, stockService, portfolioService, toastr, ngDialog) {
     console.log('StockShowCtrl is alive!!' + $stateParams);
 
 
@@ -251,6 +251,7 @@ angular.module('proj4App')
     that.twitAnalysisWithReset = [];
     that.wordsArray = [];
     that.words = [{word: 'love', size: 1}, {word: 'hate', size: 5}];
+    //that.myPromise = $http.post('/api/twitSent', {query: userInput});
     that.twitSentQuery = function(userInput, id, name) {
     that.twitAnalysis = [];
       that.tab = 0;
@@ -461,7 +462,7 @@ angular.module('proj4App')
 that.konamiKash = function () {
   if (that.myPortfolio.cash < 20 || that.myPortfolio.cash === undefined) {
     that.myPortfolio.cash = 20;
-    toastr.success("KONAMI KASH ENABLED")
+    toastr.success("KONAMI KASH ENABLED");
   }
 }
 var easter_egg = new Konami();
