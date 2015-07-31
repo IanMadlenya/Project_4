@@ -429,6 +429,31 @@ canvas#line {
 .side-nav li:hover, .side-nav li.active {
   background-color: #FFF;
 }
-
+// hvr-bubble-floater .hvr-bubble-floater:before
+@media (max-width: 768px) {
+  .hvr-bubble-floater {
+    display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: 0;
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: visible;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  -webkit-transition-duration:0;
+  transition-duration: 0;
+  -webkit-transition-property: none;
+  transition-property: none;
+  }
+  .side-nav {
+    border: red 1px;
+  }
+}
+// @media (min-width: 768px) {
+//   .hvr-bubble-floater {
+//     background: #ccc;
+//   }
+// }
 
 
